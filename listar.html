@@ -1,0 +1,137 @@
+
+            <html>
+                <head>
+                    <title> Ver Perfil </title>
+                    <link rel="stylesheet" type="text/css" href="/estilo.css">
+                    <br>
+                    
+
+                    <style>
+                                body {
+                                    background-color: #171a21;
+                                    color: #fff;
+                                    font-family: Arial, sans-serif;
+                                }
+
+                                h1 {
+                                    color: #ff4545;
+                                    text-align: center;
+                                }
+                                
+                                .header {
+                                    text-align: center;
+                                    margin: 20px auto;
+                                    max-width: 600px;
+                                    padding: 20px;
+                                    background-color: #1e2128;
+                                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                                }
+
+                                img {
+                                    display: block;
+                                    margin: 0 auto;
+                                    width: 200px;
+                                    height: 200px;
+                                    border-radius: 50%;
+                                }
+
+                                h2, h3 {
+                                    color: #ff4545;
+                                }
+
+                                p {
+                                    color: #fff;
+                                }
+
+                                .about{
+                                    text-align: center;
+                                    margin: 20px auto;
+                                    max-width: 600px;
+                                    padding: 20px;
+                                    background-color: #1e2128;
+                                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                                }
+
+                                a {
+                                    display: inline-block;
+                                    padding: 10px 20px;
+                                    background-color: #ff4545;
+                                    color: #fff;
+                                    text-decoration: none;
+                                    border-radius: 4px;
+                                    font-weight: bold;
+                                }
+                                
+                                a:hover {
+                                    background-color: #e63e3e;
+                                }
+
+                                .bottom {
+                                    text-align: center;
+                                }
+
+                                .cep {
+                                    display: flex;
+                                    border-radius: 4px;
+                                    font-weight: lighter;
+                                    font-size: 12px;
+                                    padding: 10px 20px
+
+                                    
+                                }
+
+                        </style>
+                    
+                </head>
+               
+                <body>
+
+                <h1>Seu Perfil</h1>
+
+                <div class = "header">
+                ${rows.map(row => `
+
+                    <img src="/uploads/${row.imagemPath}" alt="Foto do Perfil">
+
+               
+
+                    <h2>${row.usuario} <span id="usuario"></span></h2>
+                    <h3>${row.nickname} <span id="nickname"></span></h3>    
+
+                        <div class = "cep">
+
+                            <p>${row.cidade}<span id="cidade">|</span></p> <p>${row.estado}<span id="estado">|</span></p><p>${row.pais}<span id="pais"></span></p>
+
+                        </div>
+
+                        
+
+                </div>
+            
+                
+                <div class="about">
+
+                    <h2>Resumo</h2>
+                    <p>${row.resumo}</p>
+                
+
+                   
+               
+                </div> 
+                
+                <div class="bottom">
+                    
+                    <a href="/atualizar-form/${row.player_code}">Editar Perfil</a>
+                    <a href="/deletar/${row.player_code}">Deletar Perfil</a>
+                    <a href="/">Voltar para home</a>
+
+                </div>
+                `).join('')}
+                
+                       
+                
+
+                </body>    
+
+            </html>
+ 
